@@ -31,3 +31,48 @@
 
 ### VS Code ###
 /BM-backend/.vscode/
+
+
+
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+/BM-frontend/dist
+/BM-frontend/tmp
+/BM-frontend/out-tsc
+/BM-frontend/bazel-out
+
+# Node
+/BM-frontend/node_modules
+/BM-frontend/npm-debug.log
+/BM-frontend/yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/BM-frontend/.angular/cache
+/BM-frontend/.sass-cache/
+/BM-frontend/connect.lock
+/BM-frontend/coverage
+/BM-frontend/libpeerconnection.log
+/BM-frontend/testem.log
+/BM-frontend/typings
+
+# System files
+.DS_Store
+Thumbs.db
