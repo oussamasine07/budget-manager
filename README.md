@@ -1,7 +1,7 @@
 ## **Diagrams**
 #### ***Use Case Diagram***
-![Use case uml diagram](./uml/use.jpg)
+![Use case uml diagram](./uml/use.webp)
 #### ***Class Diagram***
-![Class diagram](./uml/class.jpg)
+![Class diagram](./uml/class.webp)
 #### ***Sequence Diagram***
-![Sequence diagram](./uml/sequence.jpg)
+![Sequence diagram](./uml/sequence.webp)
