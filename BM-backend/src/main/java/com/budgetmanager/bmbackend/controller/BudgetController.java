@@ -26,6 +26,8 @@ public class BudgetController {
 
     @GetMapping
     public List<Budget> index () {
+
+        System.out.println(System.getenv("MYSQL_PASSWORD"));
         return budgetService.getAllBudgets();
     }
 
