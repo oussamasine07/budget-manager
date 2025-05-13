@@ -4,4 +4,4 @@
 #### ***Class Diagram***
 ![Class diagram](./uml/class.webp)
 #### ***Sequence Diagram***
-![Sequence diagram](./uml/sequence.webp)
+![Sequence diagram](./uml/sequence.jpg)
