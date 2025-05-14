@@ -2,18 +2,19 @@ package com.budgetmanager.bmbackend.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Category {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private  String name;
 
-    private double limit;
+    private double limite;
 
     public Category () {}
 
@@ -33,11 +34,11 @@ public class Category {
         this.name = name;
     }
 
-    public double getLimit() {
-        return limit;
+    public double getLimite() {
+        return limite;
     }
 
-    public void setLimit(double limit) {
-        this.limit = limit;
+    public void setLimite(double limit) {
+        this.limite = limit;
     }
 }
