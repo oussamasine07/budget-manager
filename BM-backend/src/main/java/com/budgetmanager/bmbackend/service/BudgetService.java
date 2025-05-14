@@ -23,4 +23,8 @@ public class BudgetService {
         return budgetRepository.findAll();
     }
 
+    public Budget createBudget ( Budget budget ) {
+        return budgetRepository.save( budget );
+    }
+
 }

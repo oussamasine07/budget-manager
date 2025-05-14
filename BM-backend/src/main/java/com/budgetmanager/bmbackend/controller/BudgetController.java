@@ -4,9 +4,7 @@ import com.budgetmanager.bmbackend.model.Budget;
 import com.budgetmanager.bmbackend.service.BudgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +27,11 @@ public class BudgetController {
 
         System.out.println(System.getenv("MYSQL_PASSWORD"));
         return budgetService.getAllBudgets();
+    }
+
+    @PostMapping
+    public Budget create (@RequestBody Budget budget) {
+        return budgetService.createBudget( budget );
     }
 
 }

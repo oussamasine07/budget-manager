@@ -1,10 +1,9 @@
 package com.budgetmanager.bmbackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Transaction {
@@ -20,6 +19,9 @@ public class Transaction {
     private String description;
 
     private double amount;
+//pls transaction peut avoir même budget
+    @ManyToOne
+    private Budget budget;
 
     public Transaction () {}
 
