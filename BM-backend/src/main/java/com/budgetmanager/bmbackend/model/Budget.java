@@ -7,23 +7,32 @@ import lombok.Data;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Budget {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotNull
-    private String type;
 
     private double amount;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
+
+    // un budget possede plusieurs transaction
+    @OneToMany(mappedBy = "budget")
+    private List<Transaction> transaction;
 
     public Budget () {}
 
-
+    @PrePersist
+    protected void onCreate() {
+        if (date == null) {
+            date = new Date();
+        }
+    }
+    
     public Long getId() {
         return id;
     }
@@ -32,13 +41,6 @@ public class Budget {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public double getAmount() {
         return amount;
