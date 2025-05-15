@@ -17,6 +17,8 @@ public class Budget {
 
     private double amount;
 
+    private String type;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
