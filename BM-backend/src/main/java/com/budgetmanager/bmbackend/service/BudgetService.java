@@ -43,6 +43,14 @@ public class BudgetService {
         return budgetRepository.save( budget );
     }
 
+    public Budget updateBudget (Long id,Budget budget) {
+        Budget updatedBudget = budgetRepository.findById(id).orElse(null);
+        updatedBudget.setAmount(budget.getAmount());
+        updatedBudget.setType(budget.getType());
+        updatedBudget.setDate(budget.getDate());
+        return budgetRepository.save( budget);
+    }
+
     public void deleteBudget (Long id) {
         budgetRepository.deleteById(id);
     }
