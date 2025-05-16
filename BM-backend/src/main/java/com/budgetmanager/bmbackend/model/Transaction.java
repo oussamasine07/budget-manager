@@ -12,6 +12,7 @@ public class Transaction {
     @GeneratedValue
     private Long id;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
     private String type;
@@ -19,11 +20,37 @@ public class Transaction {
     private String description;
 
     private double amount;
-//pls transaction peut avoir même budget
+    //pls transaction peut avoir même budget
     @ManyToOne
     private Budget budget;
 
+    @ManyToOne
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Budget getBudget() {
+        return budget;
+    }
+
+    public void setBudget(Budget budget) {
+        this.budget = budget;
+    }
+
     public Transaction () {}
+
+    @PrePersist
+    protected void onCreate() {
+        if (date == null) {
+            date = new Date();
+        }
+    }
 
     public Long getId() {
         return id;
@@ -63,5 +90,18 @@ public class Transaction {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", date=" + date +
+                ", type='" + type + '\'' +
+                ", description='" + description + '\'' +
+                ", amount=" + amount +
+                ", budget=" + budget +
+                ", category=" + category +
+                '}';
     }
 }

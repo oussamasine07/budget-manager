@@ -1,9 +1,8 @@
 package com.budgetmanager.bmbackend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Category {
@@ -15,6 +14,9 @@ public class Category {
     private  String name;
 
     private double limite;
+
+    @OneToMany(mappedBy = "category")
+    private List<Transaction> transactions;
 
     public Category () {}
 
