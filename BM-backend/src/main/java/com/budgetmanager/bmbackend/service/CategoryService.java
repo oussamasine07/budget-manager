@@ -23,6 +23,10 @@ public class CategoryService {
         return cateogoryRepository.findAll();
     }
 
+    public Category getCategoryById (Long id) {
+        return cateogoryRepository.findById(id).orElseThrow();
+    }
+
     public Category createCategory ( Category category ) {
         return cateogoryRepository.save(category);
     }

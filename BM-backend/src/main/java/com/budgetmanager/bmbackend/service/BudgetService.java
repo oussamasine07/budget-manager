@@ -39,6 +39,10 @@ public class BudgetService {
                 .collect(Collectors.toList());
     }
 
+    public Budget getBudgetById (Long id) {
+        return budgetRepository.findById(id).orElseThrow();
+    }
+
     public Budget createBudget ( Budget budget ) {
         return budgetRepository.save( budget );
     }
