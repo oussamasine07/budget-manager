@@ -1,0 +1,67 @@
+<div class="mt-5 p-6 bg-slate-800 rounded-xl shadow-lg" >
+  <!-- Header with title and back button -->
+  <div class="flex items-center justify-between mb-6">
+    <a routerLink="/" class="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-slate-600 transition duration-200">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 19l-7-7 7-7" />
+      </svg>
+      Go Back
+    </a>
+    <h1 class="text-white text-xl font-semibold">New Transaction</h1>
+    <div></div> <!-- Empty div to balance flex -->
+  </div>
+
+  <!-- Form Layout -->
+  <form class="grid grid-cols-1 md:grid-cols-2 gap-6" #transactionForm (ngSubmit)="onMakeTransactionSubmit(transactionForm)">
+    <!-- Budget Select -->
+    <div class="flex flex-col">
+      <label class="text-gray-300 mb-1">Select Budget</label>
+      <select name="budget" [(ngModel)]="transactionsObj.budget_id" class="rounded-lg p-2 bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <option value="">Choose budget</option>
+        <option *ngFor="let budget of budgets" value="{{ budget.id }}">{{ budget.type }}</option>
+      </select>
+    </div>
+
+    <!-- Transaction Type Select -->
+    <div class="flex flex-col">
+      <label class="text-gray-300 mb-1">Transaction Type</label>
+      <select name="type" [(ngModel)]="transactionsObj.type" class="rounded-lg p-2 bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <option value="">Choose type</option>
+        <option value="revenu">Revenu</option>
+        <option value="expence">Expence</option>
+      </select>
+    </div>
+
+    <!-- Category Select -->
+    <div class="flex flex-col">
+      <label class="text-gray-300 mb-1">Category</label>
+      <select name="category" [(ngModel)]="transactionsObj.category_id" class="rounded-lg p-2 bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <option value="">Choose category</option>
+        <option *ngFor="let category of categories" value="{{ category.id }}"> {{ category.name }} </option>
+        <!-- more categories -->
+      </select>
+    </div>
+
+    <!-- Amount Input -->
+    <div class="flex flex-col">
+      <label class="text-gray-300 mb-1">Amount</label>
+      <input name="amount" [(ngModel)]="transactionsObj.amount" type="number" class="rounded-lg p-2 bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter amount" />
+    </div>
+
+    <!-- Date Input -->
+    <div class="flex flex-col md:col-span-2">
+      <label class="text-gray-300 mb-1">Date</label>
+      <input type="date" name="date" [(ngModel)]="transactionsObj.date" class="rounded-lg p-2 bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="md:col-span-2 flex justify-end">
+      <button type="submit" class="py-2 px-6 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold rounded-lg shadow-md hover:scale-105 transition-transform duration-200">
+        Submit Transaction
+      </button>
+    </div>
+  </form>
+</div>
+
