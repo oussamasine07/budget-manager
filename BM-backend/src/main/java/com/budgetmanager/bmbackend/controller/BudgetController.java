@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/budget")
+@CrossOrigin
 public class BudgetController {
 
     private final BudgetService budgetService;

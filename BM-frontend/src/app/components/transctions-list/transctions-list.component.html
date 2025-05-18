@@ -22,36 +22,38 @@
       </tr>
       </thead>
       <tbody class="divide-y divide-slate-700">
-      <tr class="hover:bg-slate-700/50 transition duration-200">
+      <tr class="hover:bg-slate-700/50 transition duration-200" *ngFor="let transaction of transactions">
         <td class="px-6 py-4">
-            <span class="inline-block px-3 py-1 rounded-full bg-rose-600/90 text-white text-xs font-medium">
-              Expense
+            <span [ngClass]="transaction.type == 'expence' ? 'inline-block px-3 py-1 rounded-full bg-rose-600/90 text-white text-xs font-medium' : 'inline-block px-3 py-1 rounded-full bg-emerald-600/90 text-white text-xs font-medium' ">
+              {{ transaction.type }}
             </span>
         </td>
-        <td class="px-6 py-4 text-rose-400 font-semibold">1,200 dh</td>
-        <td class="px-6 py-4">Cash</td>
-        <td class="px-6 py-4 text-sm text-slate-400">21-04-2025</td>
-      </tr>
-      <tr class="hover:bg-slate-700/50 transition duration-200">
-        <td class="px-6 py-4">
-            <span class="inline-block px-3 py-1 rounded-full bg-rose-600/90 text-white text-xs font-medium">
-              Expense
-            </span>
+        <td [ngClass]="transaction.type == 'expence' ? 'px-6 py-4 text-rose-400 font-semibold text-right font-mono whitespace-nowrap' : 'px-6 py-4 text-emerald-400 font-semibold text-right font-mono whitespace-nowrap'" class="">
+          {{ transaction.amount | number: '1.2-2'}}&nbsp;DH
         </td>
-        <td class="px-6 py-4 text-rose-400 font-semibold">1,200 dh</td>
-        <td class="px-6 py-4">Cash</td>
-        <td class="px-6 py-4 text-sm text-slate-400">21-04-2025</td>
+        <td class="px-6 py-4">{{ transaction.budget?.type }}</td>
+        <td class="px-6 py-4 text-sm text-slate-400">{{ transaction.date | date }}</td>
       </tr>
-      <tr class="hover:bg-slate-700/50 transition duration-200">
-        <td class="px-6 py-4">
-            <span class="inline-block px-3 py-1 rounded-full bg-rose-600/90 text-white text-xs font-medium">
-              Expense
-            </span>
-        </td>
-        <td class="px-6 py-4 text-rose-400 font-semibold">1,200 dh</td>
-        <td class="px-6 py-4">Cash</td>
-        <td class="px-6 py-4 text-sm text-slate-400">21-04-2025</td>
-      </tr>
+<!--      <tr class="hover:bg-slate-700/50 transition duration-200">-->
+<!--        <td class="px-6 py-4">-->
+<!--            <span class="inline-block px-3 py-1 rounded-full bg-rose-600/90 text-white text-xs font-medium">-->
+<!--              Expense-->
+<!--            </span>-->
+<!--        </td>-->
+<!--        <td class="px-6 py-4 text-rose-400 font-semibold">1,200 dh</td>-->
+<!--        <td class="px-6 py-4">Cash</td>-->
+<!--        <td class="px-6 py-4 text-sm text-slate-400">21-04-2025</td>-->
+<!--      </tr>-->
+<!--      <tr class="hover:bg-slate-700/50 transition duration-200">-->
+<!--        <td class="px-6 py-4">-->
+<!--            <span class="inline-block px-3 py-1 rounded-full bg-rose-600/90 text-white text-xs font-medium">-->
+<!--              Expense-->
+<!--            </span>-->
+<!--        </td>-->
+<!--        <td class="px-6 py-4 text-rose-400 font-semibold">1,200 dh</td>-->
+<!--        <td class="px-6 py-4">Cash</td>-->
+<!--        <td class="px-6 py-4 text-sm text-slate-400">21-04-2025</td>-->
+<!--      </tr>-->
 
       <!-- More rows -->
       </tbody>
