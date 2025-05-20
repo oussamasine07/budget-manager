@@ -23,10 +23,10 @@ public class TransactionServiceTest {
         Category category = new Category();
         category.setName("travel");
         category.setLimite(1000);
-        Mockito.when(cateogoryRepository.save(category)).thenReturn(category);
+        Category testCat = (Category) Mockito.when(cateogoryRepository.save(category)).thenReturn(category);
         Category addedCategpry = categoryService.createCategory(category);
 
         // start testing
-        Assertions.assertEquals(category.getId(), addedCategpry.getId());
+        Assertions.assertEquals(testCat.getId(), addedCategpry.getId());
     }
 }
